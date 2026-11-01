@@ -238,4 +238,116 @@
     }
 </style>
 </body>
+    <section class="recent-upload">
+    <h2>Recently Uploaded</h2>
+
+    <a href="thewayyouusedtodo.html" class="update-card">
+        <div class="update-content">
+            <span class="update-label">LATEST UPLOAD</span>
+
+            <h3>The Way You Used To Do</h3>
+
+            <p>
+                See the most recently uploaded fic!
+            </p>
+
+            <span class="update-date">
+                Uploaded On: November 1, 2026
+            </span>
+
+            <span class="preview-link">
+                View Page →
+            </span>
+        </div>
+
+        <div class="preview-container">
+            <iframe
+                src="thewayyouusedtodo.html"
+                title="Preview of Fic"
+                loading="lazy">
+            </iframe>
+        </div>
+    </a>
+</section>
+
+<style>
+.recent-update {
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.recent-update h2 {
+    font-size: 25px;
+    margin-bottom: 18px;
+    color: #222;
+}
+
+.update-card {
+    display: block;
+    text-decoration: none;
+    color: #222;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.update-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+}
+
+.update-content {
+    padding: 20px;
+}
+
+.update-label {
+    color: #777;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.update-content h3 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.update-content p {
+    color: #555;
+    line-height: 1.5;
+}
+
+.update-date {
+    display: block;
+    color: #888;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.preview-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #1769aa;
+    font-weight: bold;
+}
+
+.preview-container {
+    height: 250px;
+    overflow: hidden;
+    border-top: 1px solid #ddd;
+    pointer-events: none;
+}
+
+.preview-container iframe {
+    width: 200%;
+    height: 500px;
+    border: none;
+    transform: scale(0.5);
+    transform-origin: top left;
+}
+</style>
 </html>
