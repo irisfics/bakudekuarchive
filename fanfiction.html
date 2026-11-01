@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fanfiction Directory</title>
+
+<style>
+
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+/* Alphabet navigation */
+.alphabet {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 25px 0;
+}
+
+.alphabet button {
+    padding: 9px 13px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.alphabet button:hover,
+.alphabet button.active {
+    background-color: #333;
+    color: white;
+}
+
+/* Fanfiction entries */
+.fanfiction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fanfiction {
+    background-color: white;
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.fanfiction h2 {
+    font-size: 19px;
+    margin: 0 0 8px;
+}
+
+.fanfiction h2 a {
+    color: #24558a;
+    text-decoration: none;
+}
+
+.fanfiction h2 a:hover {
+    text-decoration: underline;
+}
+
+.author {
+    font-size: 14px;
+    color: #666;
+}
+
+.hidden {
+    display: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Fanfiction Directory</h1>
+
+    <p>Browse fanfictions by title or author.</p>
+
+    <!-- Alphabetical filter -->
+    <div class="alphabet" id="alphabet"></div>
+
+    <!-- Fanfiction entries -->
+    <div class="fanfiction-list" id="fanfictionList">
+
+        <div class="fanfiction">
+            <h2>
+                <a href="fanfiction/story-one.html">
+                    A New Beginning
+                </a>
+            </h2>
+            <div class="author">Author: Jane Smith</div>
+        </div>
+
+        <div class="fanfiction">
+            <h2>
+                <a href="fanfiction/story-two.html">
+                    Broken Promises
+                </a>
+            </h2>
+            <div class="author">Author: Alex Johnson</div>
+        </div>
+
+        <div class="fanfiction">
+            <h2>
+                <a href="fanfiction/story-three.html">
+                    Crimson Skies
+                </a>
+            </h2>
+            <div class="author">Author: Taylor Brown</div>
+        </div>
+
+        <div class="fanfiction">
+            <h2>
+                <a href="fanfiction/story-four.html">
+                    Distant Memories
+                </a>
+            </h2>
+            <div class="author">Author: Sam Wilson</div>
+        </div>
+
+        <div class="fanfiction">
+            <h2>
+                <a href="fanfiction/story-five.html">
+                    Endless Summer
+                </a>
+            </h2>
+            <div class="author">Author: Morgan Lee</div>
+        </div>
+
+    </div>
+
+    <p id="noResults" class="hidden">
+        No fanfictions found under this letter.
+    </p>
+
+</div>
+
+<script>
+
+// Get page elements
+const alphabetContainer = document.getElementById("alphabet");
+const fanfictionList = document.getElementById("fanfictionList");
+const noResults = document.getElementById("noResults");
+
+// Alphabet
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+// Get all fanfiction entries
+const fanfictions = Array.from(
+    fanfictionList.querySelectorAll(".fanfiction")
+);
+
+// Sort fanfictions alphabetically by title
+fanfictions.sort((a, b) => {
+
+    const titleA = a.querySelector("h2").textContent.trim();
+    const titleB = b.querySelector("h2").textContent.trim();
+
+    return titleA.localeCompare(titleB, undefined, {
+        sensitivity: "base"
+    });
+
+});
+
+// Reorder entries on the page
+fanfictions.forEach(fanfiction => {
+    fanfictionList.appendChild(fanfiction);
+});
+
+// Create ALL button
+const allButton = document.createElement("button");
+
+allButton.textContent = "ALL";
+allButton.classList.add("active");
+
+alphabetContainer.appendChild(allButton);
+
+// Function to filter fanfictions
+function filterFanfictions(letter) {
+
+    let visibleCount = 0;
+
+    fanfictions.forEach(fanfiction => {
+
+        const title = fanfiction
+            .querySelector("h2")
+            .textContent.trim();
+
+        const firstLetter = title.charAt(0).toUpperCase();
+
+        if (letter === "ALL" || firstLetter === letter) {
+
+            fanfiction.classList.remove("hidden");
+            visibleCount++;
+
+        } else {
+
+            fanfiction.classList.add("hidden");
+
+        }
+
+    });
+
+    // Display message if no entries match
+    noResults.classList.toggle("hidden", visibleCount > 0);
+
+    // Highlight active button
+    alphabetContainer.querySelectorAll("button")
+        .forEach(button => {
+            button.classList.toggle(
+                "active",
+                button.textContent === letter
+            );
+        });
+
+}
+
+// ALL button functionality
+allButton.addEventListener("click", () => {
+    filterFanfictions("ALL");
+});
+
+// Create A-Z buttons
+alphabet.split("").forEach(letter => {
+
+    const button = document.createElement("button");
+
+    button.textContent = letter;
+
+    button.addEventListener("click", () => {
+        filterFanfictions(letter);
+    });
+
+    alphabetContainer.appendChild(button);
+
+});
+
+// Initially show all fanfictions
+filterFanfictions("ALL");
+
+</script>
+
+</body>
+</html>
