@@ -13,31 +13,4 @@ header {
   background-color: #333;
   padding: 20px;
 }
-form {
-  display: flex;
-  align-items: center;
-  max-width: 400px;
-}
 
-input[type="search"] {
-  flex: 1;
-  padding: 8px 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px 0 0 4px;
-  outline: none;
-}
-
-button {
-  padding: 8px 16px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: 1px solid #007bff;
-  border-radius: 0 4px 4px 0;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
