@@ -13,3 +13,18 @@ header {
   background-color: #333;
   padding: 20px;
 }
+
+.search {
+  position: relative;
+  width: 400px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background: #346e45;
+  border: 1px solid #c7991a;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: 0.4s ease;
+}
