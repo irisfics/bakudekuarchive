@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spider Lily</title>
+    <style>
+  /* Makes all paragraph text white */
+      p {
+    color: #ffffff;
+  }
+     h1, h2 {
+    color: #ffffff;
+  }
+    body {
+        background-color: #2a732e;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 40px 20px;
+ }
+</style>
+</head>
+    <body>
+    <h1>The BakuDeku Archive</h1>
+</body>
+<body>
+    <nav>
+    <a href="/bakudekuarchive/index.html">Home</a>
+    <a href="/bakudekuarchive/fanfiction.html">Fanfiction Masterlist</a>
+    <a href="/bakudekuarchive/about.html">About The Archive</a>
+</nav>
+
+<style>
+    nav {
+         background-color: #c7991a;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+    }
+
+    nav a:hover {
+        color: #2a732e;
+        text-decoration: underline;
+    }
+</style>
+    <h1>Spider Lily</h1>
+    <h2>by: garden_hearts386 on ao3</h2>
+    <p>
+<br>
+Rating: Explicit
+<br>
+Warnings: No Archive Warnings Apply
+<br>
+<br>
+Tags: Alternate Universe - No Quirks (My Hero Academia), Alternate
+Universe - College/University, Artist Midoriya Izuku, Athlete Bakugou
+Katsuki, Hurt/Comfort, Midoriya Izuku-centric, Eventual Smut, Verbal
+Abuse, Slow Burn, Midoriya Hisashi's Bad Parenting, Tutor Midoriya
+Izuku, Semi-Public Sex, Enemies to Lovers, Car Sex, Romantic Fluff,
+Masturbation, Bakugou Mitsuki's Bad Parenting, Eventual Happy
+Ending, Recreational Drug Use, Strangers to Lovers, Confident Midoriya
+Izuku, Complete
+<br>
+<br>
+Summary: Everyone knows about the cliche love stories with the school nerd and jock.
+He’s a cheeky asshole who can’t seem to keep it in his pants. She’s the straight-A bookworm
+whose only goal is to pass chemistry.
+He takes off her glasses to reveal her “true beauty.” She falls in love with his supposed
+sensitive side.
+But, this one in particular doesn’t quite follow the same boring formula.
+He’s the star hockey player forced to take an art course. He’s the stubborn art major who just
+wants one stress-free year.
+And it’s gonna take a lot more than the glasses move and some smooth talking for either of
+them in this story to budge.
+<br>
+<br>
+Words: 222,357 Chapters: 33/33
+        <br>
+    </p>
+
+<a href="../files/Spider_Lily.pdf" download>
+    <button class="download-button">
+        Download PDF
+    </button>
+</a>
+
+<style>
+    .download-button {
+        background-color: #c7991a;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .download-button:hover {
+        background-color: #2a732e;
+    }
+</style>
+
+
+   <br>
+    <br>
+<button onclick="history.back()" class="back-button">
+    &#8592; Back
+</button>
+
+<style>
+    .back-button {
+        background-color: #c7991a
+;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 22px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+        background-color: #2a732e;
+    }
+</style>
+
+</body>
+</html>
