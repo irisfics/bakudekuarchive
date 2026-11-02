@@ -124,115 +124,152 @@
 
 <body>
 
-<div class="search-container">
+<div class="website-search">
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search pages..."
+        autocomplete="off"
+    >
 
-    <form class="search-box" id="search-form">
-        <input
-            type="search"
-            id="search-input"
-            placeholder="Search this website..."
-            aria-label="Search website"
-            autocomplete="off"
-        >
+    <button onclick="searchPages()">Search</button>
 
-        <button type="submit">Search</button>
-    </form>
-
-    <div id="search-results" role="region"
-         aria-label="Search results" aria-live="polite" hidden>
-    </div>
-
+    <div id="searchResults"></div>
 </div>
-<br>
-<br>
+
+<style>
+    .website-search {
+        max-width: 600px;
+        margin: 30px auto;
+        position: relative;
+    }
+
+    #searchInput {
+        width: 70%;
+        padding: 12px;
+        border: 2px solid #2a732e;
+        border-radius: 8px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .website-search button {
+        padding: 12px 18px;
+        background-color: #2a732e;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .website-search button:hover {
+        background-color: #1e5422;
+    }
+
+    #searchResults {
+        margin-top: 10px;
+        background-color: #ffffff;
+        color: #222222;
+        border-radius: 8px;
+    }
+
+    #searchResults a {
+        display: block;
+        padding: 12px;
+        color: #2a732e;
+        text-decoration: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    #searchResults a:hover {
+        background-color: #eeeeee;
+    }
+
+    #searchResults p {
+        padding: 10px;
+    }
+</style>
+
 <script>
     // ADD YOUR WEBSITE PAGES HERE
-    const websitePages = [
+    const pages = [
         {
             title: "Home",
-            url: "/index.html",
-            description: "Welcome to our website."
-        },
-        {
-            title: "Masterlist",
-            url: "/fanfiction.html",
-            description: "Masterlist of Fanfics."
-        },
-        {
-            title: "The Way You Used To Do",
-            url: "/fanfiction/thewayyouusedtodo.html",
-            description: " "
+            path: "../index.html",
+            keywords: "home main homepage"
         },
         {
             title: "About",
-            url: "/about.html",
-            description: "About the BakuDeku Archive"
+            path: "../about.html",
+            keywords: "about the archive"
         },
         {
-            title: "Fire Lily",
-            url: "bakudekuarchive/fanfiction/firelily.html",
-            description: " "
+            title: "Fanfiction Masterlist",
+            path: "fanfiction.html",
+            keywords: "find a fanfic"
+        },
+        {
+            title: "The Way You Used To Do",
+            path: "../fanfiction/thewayyouusedtodo.html",
+            keywords: " "
         },
         {
             title: "Deathly Beautiful",
-            url: "/fanfiction/deathlybeautiful.html",
-            description: " "
+            path: "../fanfiction/deathlybeautiful.html",
+            keywords: " "
         },
+        {
+            title: "Fire Lily",
+            path: "../fanfiction/firelily.html",
+            keywords: " "
+        }
     ];
 
-    const form = document.getElementById("search-form");
-    const input = document.getElementById("search-input");
-    const results = document.getElementById("search-results");
+    function searchPages() {
+        const input = document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
 
-    function searchWebsite(query) {
-        const searchTerm = query.trim().toLowerCase();
+        const results = document.getElementById("searchResults");
 
-        results.replaceChildren();
+        results.innerHTML = "";
 
-        if (!searchTerm) {
-            results.hidden = true;
+        if (input === "") {
+            results.innerHTML = "<p>Please enter a search term.</p>";
             return;
         }
 
-        const matches = websitePages.filter(page =>
-            `${page.title} ${page.description}`
-                .toLowerCase()
-                .includes(searchTerm)
+        const matchingPages = pages.filter(page =>
+            page.title.toLowerCase().includes(input) ||
+            page.path.toLowerCase().includes(input) ||
+            page.keywords.toLowerCase().includes(input)
         );
 
-        if (matches.length === 0) {
-            const message = document.createElement("div");
-            message.className = "no-results";
-            message.textContent = "No results found. Try another search.";
-            results.appendChild(message);
-        } else {
-            matches.forEach(page => {
-                const link = document.createElement("a");
-                link.className = "result-item";
-                link.href = page.url;
-
-                const title = document.createElement("strong");
-                title.textContent = page.title;
-
-                const description = document.createElement("div");
-                description.textContent = page.description;
-
-                link.append(title, description);
-                results.appendChild(link);
-            });
+        if (matchingPages.length === 0) {
+            results.innerHTML = "<p>No pages found.</p>";
+            return;
         }
 
-        results.hidden = false;
+        matchingPages.forEach(page => {
+            const link = document.createElement("a");
+
+            link.href = page.path;
+            link.textContent = page.title;
+
+            results.appendChild(link);
+        });
     }
 
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
-        searchWebsite(input.value);
-    });
-
-    input.addEventListener("input", function() {
-        searchWebsite(input.value);
-    });
+    // Search when Enter is pressed
+    document.getElementById("searchInput")
+        .addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                searchPages();
+            }
+        });
 </script>
 
         <nav>
